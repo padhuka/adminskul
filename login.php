@@ -619,215 +619,6 @@ if ($_POST['btnOK'])
 
 
 
-
-		//jika tp13 --> surat ..........................................................................
-		if ($tipe == "tp13")
-			{
-			//query
-			$q = mysql_query("SELECT admin_surat.*, m_pegawai.*, m_pegawai.kd AS atkd ".
-						"FROM admin_surat, m_pegawai ".
-						"WHERE admin_surat.kd_pegawai = m_pegawai.kd ".
-						"AND m_pegawai.usernamex = '$username' ".
-						"AND m_pegawai.passwordx = '$password'");
-			$row = mysql_fetch_assoc($q);
-			$total = mysql_num_rows($q);
-
-			//cek login
-			if ($total != 0)
-				{
-				session_start();
-
-				//nilai
-				$_SESSION['kd13_session'] = nosql($row['atkd']);
-				$_SESSION['no13_session'] = nosql($row['nip']);
-				$_SESSION['nip13_session'] = nosql($row['nip']);
-				$_SESSION['username13_session'] = $username;
-				$_SESSION['pass13_session'] = $password;
-				$_SESSION['tipe_session'] = "Surat";
-				$_SESSION['surat_session'] = "Surat";
-				$_SESSION['nm13_session'] = balikin($row['nama']);
-				$_SESSION['hajirobe_session'] = $hajirobe;
-
-				//diskonek
-				xfree($q);
-				xclose($koneksi);
-
-				//re-direct
-				$ke = "admsurat/index.php";
-				xloc($ke);
-				exit();
-				}
-			else
-				{
-				//diskonek
-				xfree($q);
-				xclose($koneksi);
-
-				//re-direct
-				pekem($pesan, $filenya);
-				exit();
-				}
-			}
-
-
-
-
-		//jika tp14 --> perpustakaan ..........................................................................
-		if ($tipe == "tp14")
-			{
-			//query
-			$q = mysql_query("SELECT admin_pus.*, m_pegawai.*, m_pegawai.kd AS atkd ".
-						"FROM admin_pus, m_pegawai ".
-						"WHERE admin_pus.kd_pegawai = m_pegawai.kd ".
-						"AND m_pegawai.usernamex = '$username' ".
-						"AND m_pegawai.passwordx = '$password'");
-			$row = mysql_fetch_assoc($q);
-			$total = mysql_num_rows($q);
-
-			//cek login
-			if ($total != 0)
-				{
-				session_start();
-
-				//nilai
-				$_SESSION['kd14_session'] = nosql($row['atkd']);
-				$_SESSION['no14_session'] = nosql($row['nip']);
-				$_SESSION['nip14_session'] = nosql($row['nip']);
-				$_SESSION['username14_session'] = $username;
-				$_SESSION['pass14_session'] = $password;
-				$_SESSION['tipe_session'] = "Pustakawan";
-				$_SESSION['pus_session'] = "Perpustakaan";
-				$_SESSION['nm14_session'] = balikin($row['nama']);
-				$_SESSION['hajirobe_session'] = $hajirobe;
-
-				//diskonek
-				xfree($q);
-				xclose($koneksi);
-
-				//re-direct
-				$ke = "admpus/index.php";
-				xloc($ke);
-				exit();
-				}
-			else
-				{
-				//diskonek
-				xfree($q);
-				xclose($koneksi);
-
-				//re-direct
-				pekem($pesan, $filenya);
-				exit();
-				}
-			}
-
-
-
-
-
-
-		//jika tp15 --> bp/bk ..........................................................................
-		if ($tipe == "tp15")
-			{
-			//query
-			$q = mysql_query("SELECT admin_bk.*, m_pegawai.*, m_pegawai.kd AS atkd ".
-						"FROM admin_bk, m_pegawai ".
-						"WHERE admin_bk.kd_pegawai = m_pegawai.kd ".
-						"AND m_pegawai.usernamex = '$username' ".
-						"AND m_pegawai.passwordx = '$password'");
-			$row = mysql_fetch_assoc($q);
-			$total = mysql_num_rows($q);
-
-			//cek login
-			if ($total != 0)
-				{
-				session_start();
-
-				//nilai
-				$_SESSION['kd15_session'] = nosql($row['atkd']);
-				$_SESSION['no15_session'] = nosql($row['nip']);
-				$_SESSION['nip15_session'] = nosql($row['nip']);
-				$_SESSION['username15_session'] = $username;
-				$_SESSION['pass15_session'] = $password;
-				$_SESSION['tipe_session'] = "BP/BK";
-				$_SESSION['bk_session'] = "BP/BK";
-				$_SESSION['nm15_session'] = balikin($row['nama']);
-				$_SESSION['hajirobe_session'] = $hajirobe;
-
-				//diskonek
-				xfree($q);
-				xclose($koneksi);
-
-				//re-direct
-				$ke = "admbk/index.php";
-				xloc($ke);
-				exit();
-				}
-			else
-				{
-				//diskonek
-				xfree($q);
-				xclose($koneksi);
-
-				//re-direct
-				pekem($pesan, $filenya);
-				exit();
-				}
-			}
-
-
-
-
-
-		//jika tp17 --> sms akademik ..........................................................................
-		if ($tipe == "tp17")
-			{
-			//query
-			$q = mysql_query("SELECT admin_sms.*, m_pegawai.*, m_pegawai.kd AS atkd ".
-						"FROM admin_sms, m_pegawai ".
-						"WHERE admin_sms.kd_pegawai = m_pegawai.kd ".
-						"AND m_pegawai.usernamex = '$username' ".
-						"AND m_pegawai.passwordx = '$password'");
-			$row = mysql_fetch_assoc($q);
-			$total = mysql_num_rows($q);
-
-			//cek login
-			if ($total != 0)
-				{
-				session_start();
-
-				//nilai
-				$_SESSION['kd17_session'] = nosql($row['atkd']);
-				$_SESSION['no17_session'] = nosql($row['nip']);
-				$_SESSION['nip17_session'] = nosql($row['nip']);
-				$_SESSION['username17_session'] = $username;
-				$_SESSION['pass17_session'] = $password;
-				$_SESSION['tipe_session'] = "SMS AKADEMIK";
-				$_SESSION['sms_session'] = "SMS AKADEMIK";
-				$_SESSION['nm17_session'] = balikin($row['nama']);
-				$_SESSION['hajirobe_session'] = $hajirobe;
-
-				//diskonek
-				xfree($q);
-				xclose($koneksi);
-
-				//re-direct
-				$ke = "admsms/index.php";
-				xloc($ke);
-				exit();
-				}
-			else
-				{
-				//diskonek
-				xfree($q);
-				xclose($koneksi);
-
-				//re-direct
-				pekem($pesan, $filenya);
-				exit();
-				}
-			}
-
 		}
 	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -838,13 +629,12 @@ if ($_POST['btnOK'])
 ob_start();
 
 //view //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-echo '<form action="'.$filenya.'" method="post" name="formx">
+echo '<form action="'.$filenya.'" method="post" name="formx" style="margin-top:200px">
 <br>
 <br>
-<table width="700" border="0" cellspacing="5" cellpadding="0">
+<table width="600" border="0" cellspacing="5" cellpadding="0">
 <tr valign="top">
-<td width="100">
-</td>
+
 
 <td>
 <table width="100%" bgcolor="'.$warnaover.'" border="0" cellspacing="5" cellpadding="0">
@@ -852,7 +642,7 @@ echo '<form action="'.$filenya.'" method="post" name="formx">
 <td width="50">
 <img src="'.$sumber.'/filebox/logo/'.$sek_filex.'" width="100" height="100" border="1">
 </td>
-<td valign="top">
+<td align="center" valign="top">
 <h1>
 '.$sek_nama.'
 </h1>
@@ -884,10 +674,6 @@ echo '<form action="'.$filenya.'" method="post" name="formx">
 <option value="tp10">Kesiswaan</option>
 <option value="tp11">Kepegawaian</option>
 <option value="tp12">Inventaris</option>
-<option value="tp13">Surat</option>
-<option value="tp14">Perpustakaan</option>
-<option value="tp15">BP/BK</option>
-<option value="tp17">SMS Akademik</option>
 <option value="tp06">Administrator</option>
 </select>
 <br>
@@ -910,6 +696,7 @@ if (keyCode == 13)
 	document.formx.btnOK.submit();
 	}">
 <br>
+<br>
 <input name="btnBTL" type="submit" value="BATAL">
 <input name="btnOK" type="submit" value="OK &gt;&gt;&gt;">
 </td>
@@ -921,7 +708,7 @@ if (keyCode == 13)
 <table width="100%" bgcolor="'.$warna02.'" border="0" cellspacing="5" cellpadding="0">
 <tr valign="top">
 <td>
-&copy;2012. <strong>{versi}</strong> [<a href="psb">Penerimaan Siswa Baru</a>]
+&copy;2019. <strong>{versi}</strong> 
 </td>
 </tr>
 </table>
