@@ -114,29 +114,6 @@ echo '<A href="#" class="menuku" data-flexmenu="flexmenu3"><strong>LAPORAN</stro
 
 
 
-
-
-//perpustakaan //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-echo '<A href="#" data-flexmenu="flexmenu29" class="menuku"><strong>PERPUSTAKAAN</strong>&nbsp;&nbsp;</A> |
-<UL id="flexmenu29" class="flexdropdownmenu">
-<LI>
-<a href="'.$sumber.'/admks/p/pinjam_sedang.php" title="Sedang Pinjam">Sedang Pinjam</a>
-</LI>
-<LI>
-<a href="'.$sumber.'/admks/p/pinjam_pernah.php" title="Pernah Pinjam">Pernah Pinjam</a>
-</LI>
-<LI>
-<a href="'.$sumber.'/admks/p/baru.php" title="Koleksi Item Terbaru">Koleksi Item Terbaru</a>
-</LI>
-</UL>';
-//perpustakaan //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
 //surat /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo '<A href="#" data-flexmenu="flexmenu4"><strong>SURAT</strong>&nbsp;&nbsp;</A> |
 <UL id="flexmenu4" class="flexdropdownmenu">

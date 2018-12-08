@@ -409,57 +409,6 @@ if ($_POST['btnOK'])
 
 
 
-		//jika tp09 --> wakil kurikulum ..........................................................................
-		if ($tipe == "tp09")
-			{
-			//query
-			$q = mysql_query("SELECT admin_waka.*, m_pegawai.*, m_pegawai.kd AS atkd ".
-						"FROM admin_waka, m_pegawai ".
-						"WHERE admin_waka.kd_pegawai = m_pegawai.kd ".
-						"AND m_pegawai.usernamex = '$username' ".
-						"AND m_pegawai.passwordx = '$password'");
-			$row = mysql_fetch_assoc($q);
-			$total = mysql_num_rows($q);
-
-			//cek login
-			if ($total != 0)
-				{
-				session_start();
-
-				//nilai
-				$_SESSION['kd9_session'] = nosql($row['atkd']);
-				$_SESSION['no9_session'] = nosql($row['nip']);
-				$_SESSION['nip9_session'] = nosql($row['nip']);
-				$_SESSION['username9_session'] = $username;
-				$_SESSION['pass9_session'] = $password;
-				$_SESSION['tipe_session'] = "Wakil Kurikulum";
-				$_SESSION['waka_session'] = "Wakil Kurikulum";
-				$_SESSION['nm9_session'] = balikin($row['nama']);
-				$_SESSION['hajirobe_session'] = $hajirobe;
-
-				//diskonek
-				xfree($q);
-				xclose($koneksi);
-
-				//re-direct
-				$ke = "admwaka/index.php";
-				xloc($ke);
-				exit();
-				}
-			else
-				{
-				//diskonek
-				xfree($q);
-				xclose($koneksi);
-
-				//re-direct
-				pekem($pesan, $filenya);
-				exit();
-				}
-			}
-
-
-
 
 		//jika tp10 --> kesiswaan ..........................................................................
 		if ($tipe == "tp10")
@@ -565,60 +514,6 @@ if ($_POST['btnOK'])
 
 
 
-
-		//jika tp12 --> inventaris..........................................................................
-		if ($tipe == "tp12")
-			{
-			//query
-			$q = mysql_query("SELECT admin_inv.*, m_pegawai.*, m_pegawai.kd AS atkd ".
-						"FROM admin_inv, m_pegawai ".
-						"WHERE admin_inv.kd_pegawai = m_pegawai.kd ".
-						"AND m_pegawai.usernamex = '$username' ".
-						"AND m_pegawai.passwordx = '$password'");
-			$row = mysql_fetch_assoc($q);
-			$total = mysql_num_rows($q);
-
-			//cek login
-			if ($total != 0)
-				{
-				session_start();
-
-				//nilai
-				$_SESSION['kd12_session'] = nosql($row['atkd']);
-				$_SESSION['no12_session'] = nosql($row['nip']);
-				$_SESSION['nip12_session'] = nosql($row['nip']);
-				$_SESSION['username12_session'] = $username;
-				$_SESSION['pass12_session'] = $password;
-				$_SESSION['tipe_session'] = "Inventaris";
-				$_SESSION['inv_session'] = "Inventaris";
-				$_SESSION['nm12_session'] = balikin($row['nama']);
-				$_SESSION['hajirobe_session'] = $hajirobe;
-
-				//diskonek
-				xfree($q);
-				xclose($koneksi);
-
-				//re-direct
-				$ke = "adminv/index.php";
-				xloc($ke);
-				exit();
-				}
-			else
-				{
-				//diskonek
-				xfree($q);
-				xclose($koneksi);
-
-				//re-direct
-				pekem($pesan, $filenya);
-				exit();
-				}
-			}
-
-
-
-
-
 		}
 	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -670,10 +565,8 @@ echo '<form action="'.$filenya.'" method="post" name="formx" style="margin-top:2
 <option value="tp04">Kepala Sekolah</option>
 <option value="tp05">Tata Usaha</option>
 <option value="tp08">Bendahara</option>
-<option value="tp09">Wakil Kurikulum</option>
 <option value="tp10">Kesiswaan</option>
 <option value="tp11">Kepegawaian</option>
-<option value="tp12">Inventaris</option>
 <option value="tp06">Administrator</option>
 </select>
 <br>
